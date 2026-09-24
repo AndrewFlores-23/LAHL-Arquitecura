@@ -11,14 +11,18 @@ export default function Motion() {
   const [transition, setTransition] = useState(false);
   const [loading, setLoading] = useState(() => {
     try {
-      const seen = sessionStorage.getItem("lahl-visto");
-      sessionStorage.setItem("lahl-visto", "si");
-      return !seen;
+      return !sessionStorage.getItem("lahl-visto");
     } catch {
       return false;
     }
   });
   useEffect(() => {
+    // Se marca al montar: un render descartado por Suspense no debe ocultar la intro.
+    try {
+      sessionStorage.setItem("lahl-visto", "si");
+    } catch {
+      /* sin almacenamiento: la intro se repite, sin más efecto */
+    }
     const timer = window.setTimeout(() => setLoading(false), reduce ? 0 : 1350);
     return () => clearTimeout(timer);
   }, [reduce]);
