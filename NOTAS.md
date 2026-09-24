@@ -13,3 +13,11 @@ El gris del texto pequeño se aclara a #AAA9A3 para legibilidad. No se muestran 
 - GitHub Pages solicitado después del plan inicial; el despliegue usa Actions y base `/LAHL-Arquitecura/`.
 - Feed social de demostración. Integraciones de producción diferidas por tratarse de una propuesta.
 - No se atribuyen las imágenes generadas a obras reales del estudio.
+
+## Redes en esta propuesta
+`public/data/redes.json` contiene seis imágenes de muestra con `ejemplo: true`, sin perfiles ni fechas ficticias. Cada tarjeta abre una vista local que aclara su carácter ilustrativo. El componente acepta publicaciones reales HTTPS y abre YouTube en un modal sin cookies. Con archivo vacío o fallo de carga, la sección se oculta.
+
+La sincronización y el workflow cada tres horas quedan diferidos por la aclaración de alcance (mockup). Para la versión definitiva se requerirán perfiles reales, channel_id de YouTube y autorización de Instagram profesional. No hay credenciales, adaptadores ficticiamente operativos ni tareas programadas activas.
+
+## Animación
+Se usa Framer Motion para cortinas y transición compartida de proyectos, Lenis para desplazamiento suave, y transform/opacity para las revelaciones. Se sustituye clip-path por transform/opacity para respetar la restricción de rendimiento del plan. Las transiciones se desactivan con movimiento reducido. La carga de logo se limita a la primera visita de la sesión y dura menos de 1.8 segundos.
