@@ -25,3 +25,9 @@ export const whatsapp = (
 ) => `${negocio.whatsapp}?text=${encodeURIComponent(mensaje)}`;
 export const asset = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
+export const creditoDesarrollo = {
+  nombre: "AW-RiseCR",
+  logo: "images/aw-risecr.webp",
+  descripcion: "Trabajo demostrativo para LAHL Arquitectura • Diseño.",
+};

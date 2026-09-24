@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-import { asset, negocio, whatsapp } from "../data/negocio";
+import { asset, negocio, whatsapp, creditoDesarrollo } from "../data/negocio";
 import { navegacion } from "../data/contenido";
 import { servicios } from "../data/servicios";
 import Logo from "./Logo";
@@ -198,6 +198,22 @@ export default function Layout() {
             <a href="#contenido">
               Volver arriba <Arrow direction="up" />
             </a>
+          </div>
+          <div className="development-credit">
+            <img
+              src={asset(creditoDesarrollo.logo)}
+              alt="Logo de AW-RiseCR"
+              width="48"
+              height="48"
+              loading="lazy"
+            />
+            <div>
+              <p>
+                Sitio de muestra desarrollado por{" "}
+                <strong>{creditoDesarrollo.nombre}</strong>
+              </p>
+              <p>{creditoDesarrollo.descripcion}</p>
+            </div>
           </div>
         </footer>
       </div>

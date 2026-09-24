@@ -2283,3 +2283,34 @@ small {
     gap: 10px;
   }
 }
+.development-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  padding: 24px 0 30px;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+.development-credit img {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 3px;
+}
+.development-credit strong {
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+}
+.development-credit p + p {
+  font-size: 0.65rem;
+}
+@media (max-width: 600px) {
+  .development-credit {
+    justify-content: flex-start;
+    padding-right: 40px;
+    gap: 12px;
+  }
+}
