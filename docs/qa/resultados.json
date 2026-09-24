@@ -1,0 +1,14 @@
+{
+  "fecha": "2026-09-24T03:07:52.907Z",
+  "checks": [
+    "Menú móvil abre, cierra con Escape y devuelve foco",
+    "Filtro de portafolio y estado persistente en URL",
+    "Detalle de proyecto y ficha",
+    "Formulario prepara WhatsApp sin enviar mensaje",
+    "Modal social abre y cierra con Escape",
+    "22 rutas a 375px y 1440px, sin desbordamiento ni imágenes rotas",
+    "Preguntas frecuentes expandibles",
+    "Sin excepciones JavaScript"
+  ],
+  "errors": []
+}

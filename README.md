@@ -1,32 +1,40 @@
-# React + TypeScript + Vite
+# LAHL Arquitectura • Diseño
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Propuesta navegable para presentar al cliente. React + Vite + TypeScript + Tailwind CSS, con contenido en español de Costa Rica.
 
-Currently, two official plugins are available:
+**Vista pública:** https://andrewflores-23.github.io/LAHL-Arquitecura/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Trabajar localmente
 
-## React Compiler
+Node.js 24 y npm.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+npm ci
+npm run dev
+npm run lint
+npm run build
+npm run preview
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Contenido
+
+- `src/data/negocio.ts`: datos reales, teléfono, correo y pendientes.
+- `src/data/servicios.ts`: siete servicios y preguntas frecuentes.
+- `src/data/precios.ts`: paquetes y montos (`null` hasta confirmarlos).
+- `src/data/proyectos.ts`: ocho conceptos, todos con `placeholder: true`.
+- `src/data/contenido.ts`: navegación y pasos del proceso.
+- `src/data/seo.ts`: metadatos y URL de esta propuesta.
+- `public/data/redes.json`: seis publicaciones de muestra (`ejemplo: true`).
+- `public/images/`: imágenes conceptuales WebP generadas con IA y variantes ligeras.
+
+## Publicación
+
+Cada push a `main` ejecuta `.github/workflows/pages.yml`: instala, verifica lint, construye y despliega en GitHub Pages. En GitHub, Settings → Pages → Source debe ser **GitHub Actions**.
+
+El build de Actions usa `/LAHL-Arquitecura/` como base. `scripts/static-pages.mjs` genera un documento HTML para cada ruta, además de `404.html` y `sitemap.xml`; los enlaces directos y recargas no dependen de un servidor con rewrites.
+
+## Estado de propuesta
+
+Las imágenes no representan proyectos realizados por LAHL. Los montos, ubicaciones, áreas y años no se inventaron. El formulario abre WhatsApp con los datos escritos y **no envía automáticamente**. El feed es ilustrativo y no hay sincronización social activa. La propuesta lleva `noindex` para no posicionarla como el sitio definitivo.
+
+Consultá `NOTAS.md`, `docs/PLAN-original.md` y `docs/prompts-imagenes.md` para decisiones y próximos pasos.

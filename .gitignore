@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Capturas extensas de revisión local
+docs/qa/*.png

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# Propuesta de cliente. Permitir indexación al aprobar y publicar el sitio definitivo.
