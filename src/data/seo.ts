@@ -44,3 +44,10 @@ export function pageMeta(path: string) {
   ];
   return { title, description, image: "hero.webp" };
 }
+
+export const shareImage = {
+  archivo: "lahl-compartir-v1.jpg",
+  ancho: 1200,
+  alto: 630,
+  alt: "LAHL Arquitectura • Diseño. Arquitectura a tu medida, por Luis Alejandro Herrera en Costa Rica. Imagen arquitectónica conceptual.",
+};

@@ -7,7 +7,7 @@ const server = await createServer({
 try {
   const { servicios } = await server.ssrLoadModule("/src/data/servicios.ts");
   const { proyectos } = await server.ssrLoadModule("/src/data/proyectos.ts");
-  const { pageMeta, siteUrl } = await server.ssrLoadModule("/src/data/seo.ts");
+  const { pageMeta, siteUrl, shareImage } = await server.ssrLoadModule("/src/data/seo.ts");
   const routes = [
     "/",
     "/servicios",
@@ -44,7 +44,7 @@ try {
       )
       .replace(
         /(<meta\s+property="og:image"\s+content=")[^"]*/,
-        `$1${siteUrl}/images/${meta.image}`,
+        `$1${siteUrl}/images/${shareImage.archivo}`,
       );
     html = html.replace(
       "</head>",

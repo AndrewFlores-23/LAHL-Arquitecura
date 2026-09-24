@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import { pageMeta, siteUrl } from "../data/seo";
+import { pageMeta, siteUrl, shareImage } from "../data/seo";
 import { negocio } from "../data/negocio";
 export default function SEO() {
   const { pathname } = useLocation();
@@ -23,7 +23,13 @@ export default function SEO() {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={`${siteUrl}/images/${meta.image}`} />
+      <meta property="og:image" content={`${siteUrl}/images/${shareImage.archivo}`} />
+      <meta property="og:image:width" content={String(shareImage.ancho)} />
+      <meta property="og:image:height" content={String(shareImage.alto)} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:alt" content={shareImage.alt} />
+      <meta name="twitter:image" content={`${siteUrl}/images/${shareImage.archivo}`} />
+      <meta name="twitter:image:alt" content={shareImage.alt} />
       <meta name="twitter:card" content="summary_large_image" />
       <script type="application/ld+json">
         {JSON.stringify({

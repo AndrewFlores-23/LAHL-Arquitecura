@@ -54,3 +54,6 @@ SEO preparado por página: metadatos estáticos y dinámicos, Open Graph, canoni
 - Probados: menú y Escape, filtros con estado en URL y recarga, detalle de proyectos, formulario con mensaje preparado (sin enviar), modal social y preguntas expandibles.
 - Auditoría de dependencias de producción: 0 vulnerabilidades reportadas tras actualizar React Router.
 - Reporte: `docs/qa/resultados.json`. Capturas de revisión locales en `docs/qa/`.
+
+## Vista previa al compartir
+Tarjeta de marca de 1200 × 630 px en `public/images/lahl-compartir-v1.jpg`: logo vectorial existente, colores carbón y latón, lema, nombre del arquitecto y fotografía conceptual. Fuente editable en `docs/branding/compartir-lahl.svg`. Se usa en Open Graph y Twitter en las 21 páginas, también en el HTML estático que leen los servicios de mensajería. El nombre versionado permite renovar la imagen sin reutilizar el archivo anterior.
