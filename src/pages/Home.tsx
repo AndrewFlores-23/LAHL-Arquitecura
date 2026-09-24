@@ -13,14 +13,20 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <img
-          className="hero-image"
-          src={asset("images/hero.webp")}
-          alt="Visualización conceptual de una casa tropical de concreto, madera y vidrio al atardecer"
-          width="2400"
-          height="1350"
-          fetchPriority="high"
-        />
+        <picture>
+          <source
+            media="(max-width: 600px)"
+            srcSet={asset("images/hero-mobile.webp")}
+          />
+          <img
+            className="hero-image"
+            src={asset("images/hero.webp")}
+            alt="Visualización conceptual de una casa tropical de concreto, madera y vidrio al atardecer"
+            width="2400"
+            height="1350"
+            fetchPriority="high"
+          />
+        </picture>
         <div className="hero-shade" />
         <div className="hero-content container">
           <p className="eyebrow">Arquitectura que nace de tu forma de vivir</p>
@@ -52,7 +58,7 @@ export default function Home() {
         <a
           href="#servicios"
           className="hero-scroll"
-          aria-label="Descubrir servicios"
+          aria-label="Descubrí más sobre nuestros servicios"
         >
           Descubrí más <span>↓</span>
         </a>

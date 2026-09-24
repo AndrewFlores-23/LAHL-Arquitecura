@@ -50,6 +50,8 @@ try {
       "</head>",
       `<link data-rh="true" rel="canonical" href="${siteUrl}${route}"/><meta data-rh="true" property="og:url" content="${siteUrl}${route}"/></head>`,
     );
+    if (route !== "/")
+      html = html.replace(/<link[^>]*rel="preload"[^>]*>/g, "");
     const directory = route === "/" ? "dist" : `dist${route}`;
     await mkdir(directory, { recursive: true });
     await writeFile(`${directory}/index.html`, html);

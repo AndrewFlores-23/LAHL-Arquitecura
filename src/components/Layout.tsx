@@ -69,7 +69,7 @@ export default function Layout() {
         <Link
           className="brand"
           to="/"
-          aria-label="LAHL, inicio"
+          aria-label="LAHL Arquitectura • Diseño, inicio"
           onClick={() => setOpen(false)}
         >
           <Logo />
@@ -151,7 +151,7 @@ export default function Layout() {
         </main>
         <footer className="site-footer container">
           <div className="footer-top">
-            <Link to="/" aria-label="LAHL, inicio">
+            <Link to="/" aria-label="LAHL Arquitectura • Diseño, inicio">
               <Logo />
             </Link>
             <h2>
