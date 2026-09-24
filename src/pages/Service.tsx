@@ -156,11 +156,15 @@ export default function Service() {
         aria-label="Otros servicios"
       >
         <Link to={`/servicios/${previous.slug}`}>
-          <small>← Servicio anterior</small>
+          <small>
+            <Arrow direction="left" /> Servicio anterior
+          </small>
           <span>{previous.nombre}</span>
         </Link>
         <Link to={`/servicios/${next.slug}`}>
-          <small>Siguiente servicio →</small>
+          <small>
+            Siguiente servicio <Arrow />
+          </small>
           <span>{next.nombre}</span>
         </Link>
       </nav>

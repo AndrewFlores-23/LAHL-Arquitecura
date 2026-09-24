@@ -60,7 +60,7 @@ export default function Home() {
           className="hero-scroll"
           aria-label="Descubrí más sobre nuestros servicios"
         >
-          Descubrí más <span>↓</span>
+          Descubrí más <Arrow direction="down" />
         </a>
       </section>
       <div className="contact-strip">

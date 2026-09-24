@@ -174,11 +174,24 @@ small {
   align-items: center;
 }
 .arrow {
-  display: inline-block;
-  font-family: Arial, sans-serif;
-  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
   font-size: 1.3em;
   transition: transform 0.3s;
+}
+.arrow svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+.dialog-close svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: auto;
 }
 .menu-toggle {
   background: none;

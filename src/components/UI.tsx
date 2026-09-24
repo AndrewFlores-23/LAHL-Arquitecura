@@ -1,10 +1,28 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { asset, whatsapp } from "../data/negocio";
-export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+export function Arrow({
+  diagonal = false,
+  direction = "right",
+}: {
+  diagonal?: boolean;
+  direction?: "right" | "left" | "up" | "down";
+}) {
+  const rotation = diagonal
+    ? -45
+    : { right: 0, down: 90, left: 180, up: -90 }[direction];
   return (
     <span aria-hidden="true" className="arrow">
-      {diagonal ? "↗" : "→"}
+      <svg viewBox="0 0 24 24" fill="none" focusable="false">
+        <path
+          d="M4 12h16m-7-7 7 7-7 7"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="square"
+          strokeLinejoin="miter"
+          transform={`rotate(${rotation} 12 12)`}
+        />
+      </svg>
     </span>
   );
 }

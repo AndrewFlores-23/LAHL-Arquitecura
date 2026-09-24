@@ -74,7 +74,7 @@ export default function Project() {
       </section>
       <nav className="container next-project" aria-label="Más proyectos">
         <Link to="/portafolio" className="text-link">
-          ← Todo el portafolio
+          <Arrow direction="left" /> Todo el portafolio
         </Link>
         <Link to={`/portafolio/${next.slug}`}>
           <small>Siguiente concepto</small>

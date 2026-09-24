@@ -195,7 +195,9 @@ export default function Layout() {
               © {new Date().getFullYear()} {negocio.marca} {negocio.subtitulo}
             </span>
             <span>Propuesta de sitio · Imágenes conceptuales</span>
-            <a href="#contenido">Volver arriba ↑</a>
+            <a href="#contenido">
+              Volver arriba <Arrow direction="up" />
+            </a>
           </div>
         </footer>
       </div>

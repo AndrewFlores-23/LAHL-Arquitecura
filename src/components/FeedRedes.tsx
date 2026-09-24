@@ -163,7 +163,18 @@ export default function FeedRedes() {
           onClick={close}
           aria-label="Cerrar publicación"
         >
-          ×
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="m6 6 12 12M18 6 6 18"
+              stroke="currentColor"
+              strokeWidth="1.4"
+            />
+          </svg>
         </button>
         {selected && (
           <>
