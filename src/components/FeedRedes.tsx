@@ -74,7 +74,7 @@ export default function FeedRedes() {
   }, [posts]);
   useEffect(() => {
     const controller = new AbortController();
-    fetch(asset("data/redes.json"), { signal: controller.signal })
+    fetch(asset("data/redes.json?v=carousel-2"), { signal: controller.signal })
       .then((r) => {
         if (!r.ok) throw new Error("Feed no disponible");
         return r.json();
