@@ -57,3 +57,6 @@ SEO preparado por página: metadatos estáticos y dinámicos, Open Graph, canoni
 
 ## Vista previa al compartir
 Tarjeta de marca de 1200 × 630 px en `public/images/lahl-compartir-v1.jpg`: logo vectorial existente, colores carbón y latón, lema, nombre del arquitecto y fotografía conceptual. Fuente editable en `docs/branding/compartir-lahl.svg`. Se usa en Open Graph y Twitter en las 21 páginas, también en el HTML estático que leen los servicios de mensajería. El nombre versionado permite renovar la imagen sin reutilizar el archivo anterior.
+
+## Carrusel social de mockup
+La sección «Desde el estudio», después de precios, ahora presenta un carrusel con tres publicaciones de Instagram y tres videos simulados de YouTube. Incluye navegación por flechas SVG, teclado y desplazamiento táctil. Los videos de muestra abren una imagen animada con reproducir/pausar y progreso de 12 segundos, rotulada como simulación sin audio; no hay videos reales ni cuentas conectadas. Verificado a 375 px sin desbordamiento, avance de carrusel y controles del modal.

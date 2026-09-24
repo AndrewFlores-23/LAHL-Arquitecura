@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import DemoPost from "./DemoPost";
 import { asset } from "../data/negocio";
 import { Arrow, SectionTitle } from "./UI";
 type Post = {
@@ -33,6 +34,44 @@ export default function FeedRedes() {
   const [posts, setPosts] = useState<Post[] | null>(null);
   const [selected, setSelected] = useState<Post | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
+  const track = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({
+    start: true,
+    end: false,
+    index: 0,
+  });
+  function updatePosition() {
+    const el = track.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>(".social-card");
+    const step = (card?.offsetWidth || 1) + 20;
+    setPosition({
+      start: el.scrollLeft < 2,
+      end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 2,
+      index: Math.round(el.scrollLeft / step),
+    });
+  }
+  function move(direction: number) {
+    const el = track.current;
+    if (!el) return;
+    const width =
+      el.querySelector<HTMLElement>(".social-card")?.offsetWidth ||
+      el.clientWidth;
+    el.scrollBy({
+      left: direction * (width + 20),
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "instant"
+        : "smooth",
+    });
+  }
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    updatePosition();
+    const observer = new ResizeObserver(updatePosition);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [posts]);
   useEffect(() => {
     const controller = new AbortController();
     fetch(asset("data/redes.json"), { signal: controller.signal })
@@ -94,10 +133,57 @@ export default function FeedRedes() {
           Vista de muestra · Las publicaciones reales aparecerán al conectar las
           redes del estudio.
         </p>
-        <div className="social-grid">
+        <div className="social-carousel-toolbar">
+          <span>Instagram / YouTube</span>
+          <div>
+            <span className="carousel-count" aria-live="polite">
+              {String(position.index + 1).padStart(2, "0")} /{" "}
+              {String(posts?.length || 6).padStart(2, "0")}
+            </span>
+            <button
+              type="button"
+              aria-label="Publicaciones anteriores"
+              aria-controls="redes-carrusel"
+              disabled={position.start}
+              onClick={() => move(-1)}
+            >
+              <Arrow direction="left" />
+            </button>
+            <button
+              type="button"
+              aria-label="Siguientes publicaciones"
+              aria-controls="redes-carrusel"
+              disabled={position.end}
+              onClick={() => move(1)}
+            >
+              <Arrow />
+            </button>
+          </div>
+        </div>
+        <div
+          className="social-grid social-carousel"
+          id="redes-carrusel"
+          ref={track}
+          onScroll={updatePosition}
+          role="region"
+          aria-roledescription="carrusel"
+          aria-label="Publicaciones de muestra del estudio"
+          tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.target !== event.currentTarget) return;
+            if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+              event.preventDefault();
+              move(event.key === "ArrowLeft" ? -1 : 1);
+            }
+          }}
+        >
           {posts
             ? posts.map((p, i) => (
-                <article className="social-card" key={`${p.url}-${i}`}>
+                <article
+                  className="social-card"
+                  key={`${p.url}-${i}`}
+                  aria-label={`${i + 1} de ${posts.length}: ${p.titulo}`}
+                >
                   <img
                     src={
                       p.miniatura.startsWith("images/")
@@ -110,7 +196,48 @@ export default function FeedRedes() {
                     alt={p.titulo}
                   />
                   <div className="social-shade" />
-                  <span className="social-network">{p.red}</span>
+                  <span className="social-network">
+                    <svg
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                    >
+                      {p.red === "YouTube" ? (
+                        <>
+                          <rect x="2" y="5" width="20" height="14" rx="4" />
+                          <path
+                            d="m10 9 5 3-5 3z"
+                            fill="currentColor"
+                            stroke="none"
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <rect x="3" y="3" width="18" height="18" rx="5" />
+                          <circle cx="12" cy="12" r="4" />
+                          <circle
+                            cx="17.5"
+                            cy="6.5"
+                            r=".8"
+                            fill="currentColor"
+                          />
+                        </>
+                      )}
+                    </svg>
+                    {p.red}
+                  </span>
+                  <span className="social-format">
+                    {p.tipo === "video" ? "Video de muestra" : "Publicación"}
+                  </span>
+                  {p.tipo === "video" && (
+                    <span className="social-play" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="m8 5 11 7-11 7z" />
+                      </svg>
+                    </span>
+                  )}
                   <div className="social-copy">
                     <small>
                       {p.ejemplo
@@ -179,24 +306,12 @@ export default function FeedRedes() {
         {selected && (
           <>
             {selected.ejemplo ? (
-              <>
-                <img
-                  src={
-                    selected.miniatura.startsWith("images/")
-                      ? asset(selected.miniatura)
-                      : selected.miniatura
-                  }
-                  alt={selected.titulo}
-                />
-                <div className="dialog-caption">
-                  <p className="eyebrow">Ejemplo de contenido</p>
-                  <h3>{selected.titulo}</h3>
-                  <p>
-                    Esta imagen ilustra la presentación de las redes. No es una
-                    publicación real del estudio.
-                  </p>
-                </div>
-              </>
+              <DemoPost
+                key={selected.titulo}
+                title={selected.titulo}
+                thumbnail={selected.miniatura}
+                video={selected.tipo === "video"}
+              />
             ) : (
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${youtubeId(selected.url)}?autoplay=1`}

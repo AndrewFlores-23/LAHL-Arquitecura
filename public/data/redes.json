@@ -1,8 +1,56 @@
 [
-  {"red":"Instagram","url":"","miniatura":"images/hero-small.webp","titulo":"Arquitectura que se abre al paisaje","fecha":"","tipo":"imagen","ejemplo":true},
-  {"red":"YouTube","url":"","miniatura":"images/diseno-small.webp","titulo":"De la primera línea a un nuevo espacio","fecha":"","tipo":"imagen","ejemplo":true},
-  {"red":"Instagram","url":"","miniatura":"images/interior-small.webp","titulo":"La luz también diseña","fecha":"","tipo":"imagen","ejemplo":true},
-  {"red":"TikTok","url":"","miniatura":"images/inspeccion-small.webp","titulo":"Una mirada al proceso constructivo","fecha":"","tipo":"imagen","ejemplo":true},
-  {"red":"Instagram","url":"","miniatura":"images/montana-small.webp","titulo":"Materiales que conversan con el entorno","fecha":"","tipo":"imagen","ejemplo":true},
-  {"red":"Facebook","url":"","miniatura":"images/comercial-small.webp","titulo":"Ideas para espacios comerciales","fecha":"","tipo":"imagen","ejemplo":true}
+  {
+    "red": "Instagram",
+    "url": "",
+    "miniatura": "images/hero-small.webp",
+    "titulo": "Arquitectura que se abre al paisaje",
+    "fecha": "",
+    "tipo": "imagen",
+    "ejemplo": true
+  },
+  {
+    "red": "YouTube",
+    "url": "",
+    "miniatura": "images/diseno-small.webp",
+    "titulo": "De la primera línea a un nuevo espacio",
+    "fecha": "",
+    "tipo": "video",
+    "ejemplo": true
+  },
+  {
+    "red": "Instagram",
+    "url": "",
+    "miniatura": "images/interior-small.webp",
+    "titulo": "La luz también diseña",
+    "fecha": "",
+    "tipo": "imagen",
+    "ejemplo": true
+  },
+  {
+    "red": "YouTube",
+    "url": "",
+    "miniatura": "images/inspeccion-small.webp",
+    "titulo": "Una mirada al proceso constructivo",
+    "fecha": "",
+    "tipo": "video",
+    "ejemplo": true
+  },
+  {
+    "red": "Instagram",
+    "url": "",
+    "miniatura": "images/montana-small.webp",
+    "titulo": "Materiales que conversan con el entorno",
+    "fecha": "",
+    "tipo": "imagen",
+    "ejemplo": true
+  },
+  {
+    "red": "YouTube",
+    "url": "",
+    "miniatura": "images/comercial-small.webp",
+    "titulo": "Ideas para espacios comerciales",
+    "fecha": "",
+    "tipo": "video",
+    "ejemplo": true
+  }
 ]
