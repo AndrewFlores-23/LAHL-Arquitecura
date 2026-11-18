@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8" />
+<!-- Fuente editable de la tarjeta para compartir (1200 × 630). Se exporta con
+     docs/branding/exportar-tarjeta.swift a public/images/lahl-compartir-v2.jpg. -->
+<style>
+  @font-face {
+    font-family: "Archivo";
+    src: url("../../node_modules/@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2") format("woff2");
+    font-weight: 100 900;
+    font-stretch: 62% 125%;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    gap: 14px;
+    padding: 14px;
+    background: #131614;
+    color: #ecebe4;
+    font-family: "Archivo", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .texto { display: flex; flex-direction: column; padding: 30px 14px 22px 32px; }
+  svg { width: 168px; height: auto; color: #ecebe4; }
+  svg text { font-family: "Archivo"; font-weight: 500; }
+  h1 {
+    margin-top: auto;
+    font-size: 66px;
+    font-weight: 500;
+    font-stretch: 118%;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+  h1 span { color: #ecd35a; }
+  dl { margin-top: 34px; border-bottom: 1px solid rgba(236, 235, 228, 0.28); }
+  dl div {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    align-items: baseline;
+    padding: 10px 0;
+    border-top: 1px solid rgba(236, 235, 228, 0.28);
+  }
+  dt {
+    font-stretch: 78%;
+    font-weight: 560;
+    font-size: 14px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #8d948c;
+  }
+  dd { font-size: 19px; }
+  .foto {
+    position: relative;
+    overflow: hidden;
+    border-radius: 26px;
+    background: #1a1e1b url("../../public/images/hero.webp") 42% 45% / cover;
+  }
+</style>
+<div class="texto">
+  <svg viewBox="0 0 210 95" fill="none">
+    <path d="M39 80H8V6h194v74h-32M37 23v38h26M77 61l16-38 17 38M83 48h21M125 23v38m0-20h27m0-18v38M173 23v38h17" stroke="currentColor" stroke-width="1.4" />
+    <text x="105" y="83" text-anchor="middle" fill="currentColor" font-size="8" letter-spacing="1.35">ARQUITECTURA • DISEÑO</text>
+  </svg>
+  <h1>Arquitectura<br />a tu <span>medida.</span></h1>
+  <dl>
+    <div><dt>Arquitecto</dt><dd>Luis Alejandro Herrera</dd></div>
+    <div><dt>Ubicación</dt><dd>Costa Rica</dd></div>
+    <div><dt>Alcance</dt><dd>Diseño, planos, trámites y obra</dd></div>
+  </dl>
+</div>
+<div class="foto"></div>
+</html>

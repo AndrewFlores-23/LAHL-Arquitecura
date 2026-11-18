@@ -46,8 +46,8 @@ export function pageMeta(path: string) {
 }
 
 export const shareImage = {
-  archivo: "lahl-compartir-v1.jpg",
+  archivo: "lahl-compartir-v2.jpg",
   ancho: 1200,
   alto: 630,
-  alt: "LAHL Arquitectura • Diseño. Arquitectura a tu medida, por Luis Alejandro Herrera en Costa Rica. ",
+  alt: "LAHL Arquitectura • Diseño. Arquitectura a tu medida, por Luis Alejandro Herrera en Costa Rica. Fotografía de una casa contemporánea con jardín y piscina. ",
 };

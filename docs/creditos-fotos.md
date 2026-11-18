@@ -24,4 +24,4 @@ Cada archivo sale de `https://images.unsplash.com/photo-<id>` y tiene una versi�
 | presupuesto.webp | Servicio Presupuestos | 1781859240244-61e274c2bf39 |
 | estudio.webp | Página El estudio | 1582057811341-a22d524c6a4c |
 
-Pendiente: `lahl-compartir-v1.jpg` (la tarjeta que se ve al compartir el enlace) todavía usa la imagen generada y los colores anteriores.
+La tarjeta para compartir (`lahl-compartir-v2.jpg`) usa la misma foto de la portada.
