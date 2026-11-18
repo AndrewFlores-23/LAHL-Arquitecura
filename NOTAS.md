@@ -72,3 +72,11 @@ Rediseño completo en la rama `rediseno-claude`, a pedido de Andrew. Lo anterior
 - **Fotos:** todas son fotografías reales de Unsplash en lugar de las generadas con IA. La lista está en `docs/creditos-fotos.md`. Siguen rotuladas como referencia: no son obras de LAHL. `docs/prompts-imagenes.md` queda solo como historial.
 - **Estilos:** `src/index.css` se reescribió completo; la pantalla de bloqueo de AW-RiseCR pasó sin cambios a `src/bloqueo.css`.
 - **Tarjeta para compartir:** rehecha como `public/images/lahl-compartir-v2.jpg` (1200 × 630) con la foto real de la portada y los colores nuevos. La fuente editable es `docs/branding/compartir-lahl.html`; se exporta con `swift docs/branding/exportar-tarjeta.swift docs/branding/compartir-lahl.html salida.png` y se pasa a JPG con `sips -z 630 1200 -s format jpeg`. Se borraron la v1 y su SVG.
+
+## Publicación en Cloudflare Pages (18 de noviembre de 2026)
+El sitio se publica en **https://lahl-arquitectura.pages.dev/**, en la cuenta de Cloudflare de Andrew (proyecto de Pages `lahl-arquitectura`), para que el enlace no lleve su nombre ni «github».
+
+- Se publica a mano con `npm run publicar` (compila y sube `dist` con wrangler). No se publica solo al hacer push. Hace falta tener la sesión de wrangler iniciada (`npx wrangler login`).
+- La dirección del sitio está en `siteUrl` de `src/data/seo.ts` y en dos metadatos de `index.html`. La ruta base es `/` (`vite.config.ts`).
+- El proyecto se creó con `wrangler pages project create --force`, porque wrangler 4 manda los proyectos nuevos a Workers y ahí el enlace llevaría el subdominio de la cuenta.
+- GitHub Pages se apagó y su workflow se quitó del repo: el enlace anterior (`andrewflores-23.github.io/LAHL-Arquitecura/`) ya no existe.

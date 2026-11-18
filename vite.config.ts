@@ -3,5 +3,6 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: process.env.GITHUB_ACTIONS ? "/LAHL-Arquitecura/" : "/",
+  // El sitio vive en la raíz de lahl-arquitectura.pages.dev (Cloudflare Pages).
+  base: "/",
 });

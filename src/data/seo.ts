@@ -1,7 +1,7 @@
 import { negocio } from "./negocio";
 import { servicios } from "./servicios";
 import { proyectos } from "./proyectos";
-export const siteUrl = "https://andrewflores-23.github.io/LAHL-Arquitecura";
+export const siteUrl = "https://lahl-arquitectura.pages.dev";
 export function pageMeta(path: string) {
   const route = path.replace(/\/$/, "") || "/";
   const service = servicios.find((s) => route === `/servicios/${s.slug}`);

@@ -45,6 +45,10 @@ try {
       .replace(
         /(<meta\s+property="og:image"\s+content=")[^"]*/,
         `$1${siteUrl}/images/${shareImage.archivo}`,
+      )
+      .replace(
+        /(<meta\s+name="twitter:image"\s+content=")[^"]*/,
+        `$1${siteUrl}/images/${shareImage.archivo}`,
       );
     html = html.replace(
       "</head>",
@@ -63,7 +67,7 @@ try {
     `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map((route) => `<url><loc>${siteUrl}${route}</loc></url>`).join("")}</urlset>`,
   );
   console.log(
-    `Páginas estáticas: ${routes.length}. Enlaces directos listos para GitHub Pages.`,
+    `Páginas estáticas: ${routes.length}. Enlaces directos listos.`,
   );
 } finally {
   await server.close();

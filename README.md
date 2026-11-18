@@ -2,7 +2,7 @@
 
 Propuesta navegable para presentar al cliente. React + Vite + TypeScript + Tailwind CSS, con contenido en español de Costa Rica.
 
-**Vista pública:** https://andrewflores-23.github.io/LAHL-Arquitecura/
+**Vista pública:** https://lahl-arquitectura.pages.dev/
 
 ## Trabajar localmente
 
