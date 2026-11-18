@@ -3,7 +3,7 @@ export default function NotFound() {
   return (
     <>
       <PageHeading
-        label="404 / Fuera del plano"
+        label="404, fuera del plano"
         title="Este espacio todavía no existe."
         text="La página que buscás no está disponible. Volvé al inicio para encontrar tu camino."
       />

@@ -17,14 +17,25 @@ export default function Services() {
             key={s.slug}
             className="service-row"
           >
-            <span className="eyebrow">0{i + 1}</span>
-            <Photo name={s.imagen} alt={`Referencia conceptual: ${s.nombre}`} />
-            <div>
+            <Photo name={s.imagen} alt="" />
+            <div className="service-row-text">
+              <span className="service-row-step">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <h2>{s.nombre}</h2>
               <p>{s.beneficio}</p>
-              <small>{precioTexto(s.precio)}</small>
+              <ul>
+                {s.entregables.map((e) => (
+                  <li key={e}>{e}</li>
+                ))}
+              </ul>
+              <div className="service-row-foot">
+                <small>{precioTexto(s.precio)}</small>
+                <span className="text-link">
+                  Ver el servicio <Arrow />
+                </span>
+              </div>
             </div>
-            <Arrow diagonal />
           </Link>
         ))}
       </section>

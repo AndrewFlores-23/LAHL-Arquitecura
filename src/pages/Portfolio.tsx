@@ -14,9 +14,9 @@ export default function Portfolio() {
   return (
     <>
       <PageHeading
-        label="Portafolio conceptual"
+        label="Portafolio"
         title="Distintas formas de habitar."
-        text="Una selección de conceptos para explorar la dirección visual de LAHL. Imágenes generadas para esta propuesta; no representan obras realizadas por el estudio."
+        text="Fichas de ejemplo con fotografías de referencia: muestran cómo se presentará el portafolio. No son obras realizadas por el estudio."
       />
       <section className="container section portfolio-index">
         <div
@@ -32,16 +32,16 @@ export default function Portfolio() {
               }
             >
               {t}
-              {t === "Todos" && <span>08</span>}
+              {t === "Todos" && <span>{proyectos.length}</span>}
             </button>
           ))}
         </div>
         <p className="sr-only" role="status">
-          {filtered.length} conceptos disponibles
+          {filtered.length} proyectos de ejemplo
         </p>
         <div className="portfolio-grid">
-          {filtered.map((p, i) => (
-            <ProjectCard project={p} index={i} key={p.slug} />
+          {filtered.map((p) => (
+            <ProjectCard project={p} key={p.slug} />
           ))}
         </div>
       </section>

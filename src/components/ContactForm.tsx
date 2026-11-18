@@ -18,7 +18,6 @@ export default function ContactForm() {
   return (
     <div className="contact-grid">
       <div>
-        <p className="eyebrow">Empecemos una conversación</p>
         <h2>
           Contanos
           <br />
@@ -111,8 +110,11 @@ export default function ContactForm() {
             <br />
             Vos decidís cuándo enviar el mensaje.
           </small>
-          <button className="button" type="submit">
-            Conversar por WhatsApp <Arrow diagonal />
+          <button className="button button-dark" type="submit">
+            <span className="button-label">Preparar mensaje de WhatsApp</span>
+            <span className="button-badge">
+              <Arrow diagonal />
+            </span>
           </button>
         </div>
         {sent && (

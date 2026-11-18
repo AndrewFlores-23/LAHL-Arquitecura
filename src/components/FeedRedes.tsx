@@ -119,20 +119,10 @@ export default function FeedRedes() {
     <section className="section social-section">
       <div className="container">
         <SectionTitle
-          number="04"
-          label="Desde el estudio"
           title="Ideas, detalles y proceso."
-        >
-          <p className="heading-note">
-            Una mirada al contenido
-            <br />
-            que compartiremos con vos.
-          </p>
-        </SectionTitle>
-        <p className="social-disclaimer">
-          Vista de muestra · Las publicaciones reales aparecerán al conectar las
-          redes del estudio.
-        </p>
+          text="Vista de muestra. Las publicaciones reales aparecerán al conectar Instagram y YouTube del estudio."
+        />
+        
         <div className="social-carousel-toolbar">
           <span>Instagram / YouTube</span>
           <div>
@@ -241,7 +231,7 @@ export default function FeedRedes() {
                   <div className="social-copy">
                     <small>
                       {p.ejemplo
-                        ? "VISTA DE MUESTRA"
+                        ? "Vista de muestra"
                         : new Date(p.fecha).toLocaleDateString("es-CR")}
                     </small>
                     <h3>{p.titulo}</h3>

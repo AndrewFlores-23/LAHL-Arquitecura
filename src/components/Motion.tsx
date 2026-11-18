@@ -10,11 +10,15 @@ export default function Motion() {
   const previous = useRef(pathname);
   const [transition, setTransition] = useState(false);
   const [loading, setLoading] = useState(() => {
+    let primera = false;
     try {
-      return !sessionStorage.getItem("lahl-visto");
+      primera = !sessionStorage.getItem("lahl-visto");
     } catch {
-      return false;
+      /* sin almacenamiento: no hay intro */
     }
+    // La portada espera a que se levante la cortina de la intro para animarse.
+    document.documentElement.classList.toggle("con-intro", primera);
+    return primera;
   });
   useEffect(() => {
     // Se marca al montar: un render descartado por Suspense no debe ocultar la intro.
@@ -29,6 +33,7 @@ export default function Motion() {
   useEffect(() => {
     if (pathname !== previous.current) {
       previous.current = pathname;
+      document.documentElement.classList.remove("con-intro");
       setTransition(true);
       window.scrollTo({ top: 0, behavior: "instant" });
       window.setTimeout(
@@ -51,7 +56,7 @@ export default function Motion() {
     const parallax = () => {
       const hero = document.querySelector<HTMLElement>(".hero-image");
       if (hero && window.scrollY < window.innerHeight)
-        hero.style.transform = `translateY(${window.scrollY * 0.12}px) scale(1.03)`;
+        hero.style.translate = `0 ${window.scrollY * 0.1}px`;
     };
     lenis.on("scroll", parallax);
     return () => {
@@ -74,7 +79,7 @@ export default function Motion() {
         { threshold: 0.08 },
       );
       document
-        .querySelectorAll(".section-heading,.process-grid article,.dimension")
+        .querySelectorAll(".section-heading,.process-grid,.project-card,.packages")
         .forEach((el) => {
           if (el.getBoundingClientRect().top > window.innerHeight * 0.85) {
             el.classList.add("will-reveal");
@@ -125,7 +130,7 @@ export default function Motion() {
             aria-hidden="true"
           >
             <Logo />
-            <span>ARQUITECTURA A TU MEDIDA</span>
+            <span>Arquitectura a tu medida</span>
           </motion.div>
         )}
       </AnimatePresence>

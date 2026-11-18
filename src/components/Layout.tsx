@@ -4,7 +4,7 @@ import { asset, negocio, whatsapp, creditoDesarrollo } from "../data/negocio";
 import { navegacion } from "../data/contenido";
 import { servicios } from "../data/servicios";
 import Logo from "./Logo";
-import { Arrow } from "./UI";
+import { Arrow, Button } from "./UI";
 export default function Layout() {
   const [open, setOpen] = useState(false);
   const [menuImage, setMenuImage] = useState(servicios[0].imagen);
@@ -87,7 +87,10 @@ export default function Layout() {
           target="_blank"
           rel="noreferrer"
         >
-          Cotizar <Arrow diagonal />
+          Cotizar
+          <span className="button-badge">
+            <Arrow diagonal />
+          </span>
         </a>
         <button
           ref={trigger}
@@ -116,20 +119,18 @@ export default function Layout() {
             alt=""
           />
           <div className="menu-main">
-            <p className="eyebrow">Explorá LAHL</p>
             <nav>
-              {navegacion.map(([label, to], i) => (
+              {navegacion.map(([label, to]) => (
                 <Link key={to} to={to} onClick={() => setOpen(false)}>
-                  <span>0{i + 1}</span>
                   {label}
-                  <Arrow diagonal />
+                  <Arrow />
                 </Link>
               ))}
             </nav>
             <a href={`mailto:${negocio.correo}`}>{negocio.correo}</a>
           </div>
           <div className="menu-services">
-            <p className="eyebrow">Un servicio para cada etapa</p>
+            <p className="label">Servicios</p>
             {servicios.map((s) => (
               <Link
                 key={s.slug}
@@ -139,7 +140,6 @@ export default function Layout() {
                 onFocus={() => setMenuImage(s.imagen)}
               >
                 {s.nombre}
-                <Arrow diagonal />
               </Link>
             ))}
           </div>
@@ -159,20 +159,12 @@ export default function Layout() {
               <br />
               empieza con una idea.
             </h2>
-            <a
-              className="round-link"
-              href={whatsapp()}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Cotizar por WhatsApp"
-            >
-              <Arrow diagonal />
-            </a>
+            <Button>Cotizar por WhatsApp</Button>
           </div>
           <div className="footer-grid">
             <p>{negocio.frase}</p>
             <div>
-              <p className="eyebrow">Conversemos</p>
+              <p className="label">Contacto</p>
               <a href={`tel:${negocio.tel}`}>{negocio.telefono}</a>
               <a href={`mailto:${negocio.correo}`}>{negocio.correo}</a>
               <p>
@@ -182,7 +174,7 @@ export default function Layout() {
               </p>
             </div>
             <div>
-              <p className="eyebrow">Servicios</p>
+              <p className="label">Servicios</p>
               {servicios.map((s) => (
                 <Link key={s.slug} to={`/servicios/${s.slug}`}>
                   {s.nombre}
@@ -194,7 +186,7 @@ export default function Layout() {
             <span>
               © {new Date().getFullYear()} {negocio.marca} {negocio.subtitulo}
             </span>
-            <span>Propuesta de sitio · Imágenes conceptuales</span>
+            <span>Propuesta de sitio. Fotografías de referencia de Unsplash.</span>
             <a href="#contenido">
               Volver arriba <Arrow direction="up" />
             </a>

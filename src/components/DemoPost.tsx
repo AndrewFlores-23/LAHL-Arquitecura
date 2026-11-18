@@ -56,7 +56,7 @@ export default function DemoPost({
         )}
       </div>
       <div className="dialog-caption">
-        <p className="eyebrow">
+        <p className="label">
           {video
             ? "Ejemplo de video de YouTube"
             : "Ejemplo de publicación de Instagram"}

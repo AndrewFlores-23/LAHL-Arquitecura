@@ -9,19 +9,17 @@ export default function Packages() {
             key={p.nombre}
             className={`package ${p.destacado ? "featured-package" : ""}`}
           >
-            <div className="package-top">
-              <span>{p.numero}</span>
-              {p.destacado && <span>Una solución integral</span>}
-            </div>
+            {p.destacado && <p className="package-flag">El más completo</p>}
             <h3>{p.nombre}</h3>
-            <p>{p.frase}</p>
-            <div className="package-price">{precioTexto(p.precio)}</div>
+            <p className="package-phrase">{p.frase}</p>
             <ul>
               {p.incluye.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <div className="package-price">{precioTexto(p.precio)}</div>
             <Button
+              dark
               secondary={!p.destacado}
               message={`Hola, me interesa el paquete ${p.nombre}. ¿Podemos conversar sobre mi proyecto?`}
             >

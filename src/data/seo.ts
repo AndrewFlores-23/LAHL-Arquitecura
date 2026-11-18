@@ -15,7 +15,7 @@ export function pageMeta(path: string) {
   if (project)
     return {
       title: project.nombre,
-      description: `Propuesta conceptual: ${project.descripcion}`,
+      description: `Ficha de ejemplo: ${project.descripcion}`,
       image: project.imagen,
     };
   const pages: Record<string, [string, string]> = {
@@ -25,8 +25,8 @@ export function pageMeta(path: string) {
       "Diseño, planos, trámites, renders, presupuestos e inspección de obras en Costa Rica.",
     ],
     "/portafolio": [
-      "Portafolio conceptual",
-      "Una muestra de la dirección visual propuesta para LAHL Arquitectura • Diseño.",
+      "Portafolio",
+      "Fichas de ejemplo que muestran cómo se presentará el portafolio de LAHL Arquitectura • Diseño.",
     ],
     "/precios": [
       "Precios y paquetes",
@@ -49,5 +49,5 @@ export const shareImage = {
   archivo: "lahl-compartir-v1.jpg",
   ancho: 1200,
   alto: 630,
-  alt: "LAHL Arquitectura • Diseño. Arquitectura a tu medida, por Luis Alejandro Herrera en Costa Rica. Imagen arquitectónica conceptual.",
+  alt: "LAHL Arquitectura • Diseño. Arquitectura a tu medida, por Luis Alejandro Herrera en Costa Rica. ",
 };

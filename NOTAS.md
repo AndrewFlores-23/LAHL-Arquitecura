@@ -60,3 +60,15 @@ Tarjeta de marca de 1200 × 630 px en `public/images/lahl-compartir-v1.jpg`: log
 
 ## Carrusel social de mockup
 La sección «Desde el estudio», después de precios, ahora presenta un carrusel con tres publicaciones de Instagram y tres videos simulados de YouTube. Incluye navegación por flechas SVG, teclado y desplazamiento táctil. Los videos de muestra abren una imagen animada con reproducir/pausar y progreso de 12 segundos, rotulada como simulación sin audio; no hay videos reales ni cuentas conectadas. Verificado a 375 px sin desbordamiento, avance de carrusel y controles del modal.
+
+## Rediseño de noviembre de 2026 (Claude)
+Rediseño completo en la rama `rediseno-claude`, a pedido de Andrew. Lo anterior de este archivo describe la versión de Codex; donde se contradigan, vale esta sección.
+
+- **Colores:** grafito verdoso #131614, papel de plano #E8E6DD para las secciones claras y un solo acento, amarillo canario #ECD35A (el papel de calco del estudio). Ya no se usa el latón.
+- **Tipografía:** una sola familia, Archivo variable (`@fontsource-variable/archivo`), en tres anchos: expandida en títulos, normal en textos y condensada en mayúsculas solo para los rótulos de cajetín. Se quitaron Jost e Inter.
+- **Botones:** píldora con la flecha dentro de un nodo redondo (`Button` en `src/components/UI.tsx`); variantes `secondary` y `dark` para fondos claros.
+- **Portada:** la foto va enmarcada como una lámina y los datos del estudio en un cajetín de plano con el botón de WhatsApp. Los cajetines se repiten en la ficha de proyecto y en el precio de cada servicio (`Field`).
+- **Inicio:** los servicios son una lista que cambia la foto al pasar por cada fila (`ServiceShowcase`); paquetes sobre papel; el proceso es una línea de cota con sus marcas; el contacto es un bloque canario.
+- **Fotos:** todas son fotografías reales de Unsplash en lugar de las generadas con IA. La lista está en `docs/creditos-fotos.md`. Siguen rotuladas como referencia: no son obras de LAHL. `docs/prompts-imagenes.md` queda solo como historial.
+- **Estilos:** `src/index.css` se reescribió completo; la pantalla de bloqueo de AW-RiseCR pasó sin cambios a `src/bloqueo.css`.
+- **Pendiente:** la tarjeta para compartir (`public/images/lahl-compartir-v1.jpg`) sigue con la imagen y los colores anteriores.

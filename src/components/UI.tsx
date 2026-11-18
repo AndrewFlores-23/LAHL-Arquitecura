@@ -15,33 +15,43 @@ export function Arrow({
     <span aria-hidden="true" className="arrow">
       <svg viewBox="0 0 24 24" fill="none" focusable="false">
         <path
-          d="M4 12h16m-7-7 7 7-7 7"
+          d="M5 12h14m-6-6 6 6-6 6"
           stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="square"
-          strokeLinejoin="miter"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           transform={`rotate(${rotation} 12 12)`}
         />
       </svg>
     </span>
   );
 }
+// Botón tipo píldora: el texto a la izquierda y la flecha dentro de un nodo redondo.
 export function Button({
   children,
   to,
   secondary = false,
+  dark = false,
   message,
 }: {
   children: ReactNode;
   to?: string;
   secondary?: boolean;
+  dark?: boolean;
   message?: string;
 }) {
-  const cls = `button ${secondary ? "button-secondary" : ""}`;
+  const cls = `button${secondary ? " button-secondary" : ""}${dark ? " button-dark" : ""}`;
+  const inner = (
+    <>
+      <span className="button-label">{children}</span>
+      <span className="button-badge">
+        <Arrow diagonal={!to} />
+      </span>
+    </>
+  );
   return to ? (
     <Link className={cls} to={to}>
-      {children}
-      <Arrow />
+      {inner}
     </Link>
   ) : (
     <a
@@ -50,31 +60,28 @@ export function Button({
       target="_blank"
       rel="noreferrer"
     >
-      {children}
-      <Arrow diagonal />
+      {inner}
     </a>
   );
 }
 export function SectionTitle({
-  number,
-  label,
   title,
+  text,
   children,
 }: {
-  number: string;
-  label: string;
-  title: string;
+  title: ReactNode;
+  text?: ReactNode;
   children?: ReactNode;
 }) {
   return (
     <div className="section-heading">
-      <div>
-        <p className="eyebrow">
-          {number} / {label}
-        </p>
-        <h2>{title}</h2>
-      </div>
-      {children}
+      <h2>{title}</h2>
+      {(text || children) && (
+        <div className="section-heading-side">
+          {text && <p>{text}</p>}
+          {children}
+        </div>
+      )}
     </div>
   );
 }
@@ -94,14 +101,14 @@ export function Photo({
       <img
         src={asset(`images/${name}`)}
         alt={alt}
-        srcSet={`${asset(`images/${name.replace(".webp", "-small.webp")}`)} 800w, ${asset(`images/${name}`)} ${name === "hero.webp" ? "2400" : "1440"}w`}
+        srcSet={`${asset(`images/${name.replace(".webp", "-small.webp")}`)} 800w, ${asset(`images/${name}`)} ${name === "hero.webp" ? "2200" : "1600"}w`}
         sizes={
           eager
             ? "100vw"
-            : "(max-width: 600px) 90vw, (max-width: 1000px) 48vw, 50vw"
+            : "(max-width: 600px) 92vw, (max-width: 1000px) 48vw, 50vw"
         }
         loading={eager ? "eager" : "lazy"}
-        fetchPriority={eager ? "high" : "auto"}
+        {...{ fetchpriority: eager ? "high" : "auto" }}
         width="1600"
         height="1000"
         onLoad={(e) => e.currentTarget.classList.add("loaded")}
@@ -120,10 +127,22 @@ export function PageHeading({
 }) {
   return (
     <header className="page-heading container">
-      <p className="eyebrow">LAHL / {label}</p>
+      <p className="crumb">
+        <Link to="/">LAHL</Link>
+        <span aria-hidden="true">/</span>
+        {label}
+      </p>
       <h1>{title}</h1>
       {text && <p className="intro">{text}</p>}
-      <div className="dimension" />
     </header>
+  );
+}
+// Fila de cajetín de plano: rótulo y valor.
+export function Field({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="field">
+      <dt>{label}</dt>
+      <dd>{children}</dd>
+    </div>
   );
 }
